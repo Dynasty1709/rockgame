@@ -6,15 +6,14 @@ const scissors = 2
 let playerScore = 0
 let computerScore = 0;
 
-
 function getComputerChoice(){
 num = Math.Random * 100
 if (num <20){
     return 1;}
-else if(num >=20 && num <=50){
+else if(num < 50){
     return 2;
 }
-else if(num >50){
+else{
     return 0;
 }
 }
@@ -27,8 +26,18 @@ function getPlayerChoice(){
 let rounds = 0;
 while(rounds <=5){
 let compChoice = getComputerChoice()
-let playerChoice = playerChoice()
-if (compChoice == 1){
+let playerChoice = getPlayerChoice()
+
+if (playerChoice == 1){
+    console.log("Player has chosen Rock")
+}
+if (playerChoice == 0){
+    console.log("Player has chosen Paper")
+}
+if (playerChoice == 2){
+    console.log("Player has chosen Scissor")
+}
+if (compChoice== 1){
     console.log("Computer has chosen Rock")
 }
 if (compChoice == 0){
@@ -42,29 +51,35 @@ else if (playerChoice == compChoice){
     winner = "nobody"
 }
 else if(playerChoice == 0 && compChoice == 1){
+    console.log("Paper beats rock")
     winner = "Playerr"
     playerScore += 1
 }
 else if(playerChoice == 0 && compChoice == 2){
+    console.log("Scissor beat paper")
     winner = "Computerr"
     computerScore +=1
 }
 else if(playerChoice == 1 && compChoice == 0){
+    console.log("Paper beats rock")
     winner = "Computer"
     computerScore +=1
 }
 else if(playerChoice == 1 && compChoice == 2){
+    console.log("Rocks beat scissors")
     winner = "Player"
     playerScore += 1}
 
 else if(playerChoice == 2 && compChoice == 0){
+    console.log("Scissor beat Paper")
     winner = "Player"
 playerScore += 1}
 else if(playerChoice == 2 && compChoice == 1){
+    console.log("Rock beat Scissor")
     winner = "Computer"
 computerScore +=1}      
 rounds +=1
-console.log(winner + "has won the game");
-console.log("Current Score: " + "Computer: "+computerScore +"Player: "+ playerScore)
+console.log(winner + " has won the game");
+console.log("Current Score: " + "Computer: "+computerScore +" Player: "+ playerScore)
 }
 
